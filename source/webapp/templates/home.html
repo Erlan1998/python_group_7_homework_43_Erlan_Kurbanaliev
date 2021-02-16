@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            background-image: url("https://pngicon.ru/file/uploads/doska.png");
+            background-repeat: no-repeat;
+            background-position: top;
+            color: white;
+            font-size: 18px;
+      }
+        h1 {
+            color: black;
+        }
+        form{
+            padding-top: 10%;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div> <form action="/" method="POST">
+        {% csrf_token %}
+        <h1>Online Calculator</h1>
+        <label>
+        First Number: <input required type="number" name="First_number"/>
+        </label>
+        <br/>
+        <label>
+        Second Number: <input required type="number" name="Second_number"/>
+        </label>
+        <br/>
+        <input type="radio" name="choice" value="Add" checked>
+        <label for="Add">Add</label>
+        <br/>
+        <input type="radio" name="choice" value="Subtract">
+        <label for="Subtract">Subtract</label>
+        <br/>
+        <input type="radio" name="choice" value="Multiply">
+        <label for="Multiply">Multiply</label>
+        <br/>
+        <input type="radio" name="choice" value="Divide">
+        <label for="Divide">Divide</label>
+        <br/>
+        <input type="submit" value="Calculate!"/>
+    </form>
+     <h2>
+         {% if message %}
+          Result: {{ message }}
+         {% endif %}
+     </h2>
+
+</div>
+
+</body>
+</html>
